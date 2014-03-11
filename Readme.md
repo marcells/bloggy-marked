@@ -25,7 +25,7 @@ var engine = require('bloggy')(),
 bloggyMarked.enableHighlighting();
 
 
-// Make some fixes to the marked renderer to play well with bootstrap (add table class and fix image path)
+// Make some fixes to the marked renderer to play well with bootstrap (add table and img-thumbnail class and fix image path)
 // engine.setup({
 //     baseDirectory: ...,
 //     entryUrl: ...,

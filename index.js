@@ -28,9 +28,10 @@ exports.enableBootstrapCompatibility = function () {
         renderer.image = function (href, title, text) {
             var hrefIncludingBaseImageUrl = require('url').parse(href).protocol
                     ? href
-                    : options.marked.imageUrl.replace('{imageUrl}', href);
+                    : options.marked.imageUrl.replace('{imageUrl}', href),
+                content = existingImageRenderer(hrefIncludingBaseImageUrl, title, text);
 
-            return existingImageRenderer(hrefIncludingBaseImageUrl, title, text);
+            return content.replace('<img src=', '<img class="img-thumbnail" src=');
         };
 
         return renderer;
