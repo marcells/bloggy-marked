@@ -1,14 +1,30 @@
 'use strict';
 
 var marked = require('marked'),
+    highlight = require('highlight.js'),
     getRenderer = function (options) {
         return new marked.Renderer();
+    },
+    registerLanguageDefinitions = function () {
+        highlight.registerLanguage('plain', function() {
+            return { case_insensitive: true };
+        });
+
+        highlight.registerLanguage('cli', function() {
+            return { case_insensitive: true };
+        });
     };
+
+registerLanguageDefinitions();
 
 exports.enableHighlighting = function () {
     marked.setOptions({
-        highlight: function (code) {
-            return require('highlight.js').highlightAuto(code).value;
+        highlight: function (code, lang) {
+            if (lang) {
+                return highlight.highlight(lang, code).value;
+            }
+
+            return highlight.highlightAuto(code).value;
         }
     });
 };
