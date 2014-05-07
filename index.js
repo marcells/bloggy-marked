@@ -62,7 +62,7 @@ exports.parseMarkdownContent = function (markdownContent, options, callback) {
 };
 
 exports.init = function (engine) {
-    engine.loadContent = function (content, callback) {
+    engine.loadContent = function (entry, content, callback) {
         exports.parseMarkdownContent(content, engine.getOptions(), callback);
     };
 };
