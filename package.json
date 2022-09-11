@@ -1,7 +1,7 @@
 {
     "name": "bloggy-marked",
     "description": "A markdown parser for blog posts in bloggy, a small and lightweight markdown blog engine.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "Marcell Spies <marcells@gmx.de>",
     "contributors": [
         {
@@ -10,8 +10,8 @@
         }
     ],
     "dependencies": {
-        "marked": "~0.3.0",
-        "highlight.js": "~8.0.0"
+        "marked": "~4.1.0",
+        "highlight.js": "~11.6.0"
     },
     "keywords": [
         "blog",
